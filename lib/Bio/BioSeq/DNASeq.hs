@@ -54,8 +54,10 @@ complement b
 newtype DNASeq = DNASeq B.ByteString
 
 instance BioSeq DNASeq where
-  toIupacString (DNASeq seq) = map toIupacChar $ B.unpack seq
   fromIupacString = DNASeq . B.pack . map fromIupacChar
+  toIupacString (DNASeq bs) = map toIupacChar $ B.unpack bs
+  fromList = DNASeq . B.pack
+  toList (DNASeq bs) = B.unpack bs
 
 instance Show DNASeq where
   show = toIupacString

@@ -6,17 +6,22 @@ module Bio.BioSeq
 where
 
 import Data.ByteString.Char8
+import Data.Word
 
 class BioSeq a where
+  fromIupacString :: String -> a
+
   toIupacString :: a -> String
 
-  fromIupacString :: String -> a
+  fromIupacByteString :: ByteString -> a
+  fromIupacByteString = fromIupacString . unpack
 
   toIupacByteString :: a -> ByteString
   toIupacByteString = pack . toIupacString
 
-  fromIupacByteString :: ByteString -> a
-  fromIupacByteString = fromIupacString . unpack
+  fromList :: [Word8] -> a
+
+  toList :: a -> [Word8]
 
 --instance BioSeq a => Show a where  
 --  show :: a -> String

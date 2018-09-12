@@ -54,6 +54,11 @@ complement b
   | b == any      = any
   | otherwise     = error $ "invalid base: " ++ show b
 
+fromInt :: Int -> Base
+fromInt = fromIntegral
+toInt :: Base -> Int
+toInt = fromIntegral
+
 newtype DNASeq = DNASeq B.ByteString
 
 instance BioSeq DNASeq where

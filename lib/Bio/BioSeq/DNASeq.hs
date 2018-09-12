@@ -9,6 +9,9 @@ import Data.Word
 
 type Base = Word8
 
+numBase :: Int
+numBase = 6
+
 gap      :: Base
 gap      = 0
 adenine  :: Base

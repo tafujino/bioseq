@@ -19,5 +19,5 @@ library:
   exposed-modules:
      - Bio.BioSeq
      - Bio.BioSeq.DNASeq
+     - Bio.BioSeq.DNASeq.TypeNats
   source-dirs: lib
-    

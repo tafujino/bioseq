@@ -1,4 +1,4 @@
---{-# LANGUAGE InstanceSigs #-}
+---{-# LANGUAGE InstanceSigs #-}
 --{-# LANGUAGE FlexibleInstances #-}
 --{-# LANGUAGE UndecidableInstances #-}
 --{-# LANGUAGE OverlappingInstances #-}

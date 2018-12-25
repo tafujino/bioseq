@@ -1,7 +1,3 @@
----{-# LANGUAGE InstanceSigs #-}
---{-# LANGUAGE FlexibleInstances #-}
---{-# LANGUAGE UndecidableInstances #-}
---{-# LANGUAGE OverlappingInstances #-}
 module Bio.BioSeq
 where
 
@@ -23,27 +19,19 @@ class BioSeq a where
 
   toList :: a -> [Word8]
 
---instance BioSeq a => Show a where  
---  show :: a -> String
---  show = toIupacString
+{-
+  alternative implementation?
 
-
---instance {-# OVERLAPPABLE #-} BioSeq a => Show a where
---  show :: a -> String
---  show = toIupacString
-
---instance BioSeq a => Show a where
---  show :: a -> String
---  show = toIupacString
-
---show :: BioSeq a => a -> String
---show = toIupacString
+  data DNA
+  data BioSeq t = BioSeq t ByteString
+  type DNASeq = BioSeq DNA
+-}
 
 {-
-'to(from)IupacByteString' employes BioSeq a <-> String <-> ByteString conversion
+  'to(from)IupacByteString' employes BioSeq a <-> String <-> ByteString conversion
 
-For direct conversion between BioSeq a <-> ByteString, Char <-> Word8 conversion functions
-are required. They are provided in Data.Bytestring.Internal, although they are unsafe
+  For direct conversion between BioSeq a <-> ByteString, Char <-> Word8 conversion functions
+  are required. They are provided in Data.Bytestring.Internal, although they are unsafe
 
-http://hackage.haskell.org/package/bytestring-0.9/docs/Data-ByteString-Internal.html#8
+  http://hackage.haskell.org/package/bytestring-0.9/docs/Data-ByteString-Internal.html#8
 -}

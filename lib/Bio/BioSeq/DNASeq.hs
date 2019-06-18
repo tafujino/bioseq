@@ -59,7 +59,7 @@ fromInt = fromIntegral
 toInt :: Base -> Int
 toInt = fromIntegral
 
-newtype DNASeq = DNASeq B.ByteString
+newtype DNASeq = DNASeq B.ByteString deriving (Eq, Ord)
 
 instance BioSeq DNASeq where
   fromIupacString = DNASeq . B.pack . map fromIupacChar

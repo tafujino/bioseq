@@ -5,6 +5,8 @@ import Data.ByteString.Char8
 import Data.Word
 
 class BioSeq a where
+  empty :: a
+
   fromIupacString :: String -> a
 
   toIupacString :: a -> String

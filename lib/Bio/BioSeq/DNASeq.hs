@@ -62,6 +62,7 @@ toInt = fromIntegral
 newtype DNASeq = DNASeq B.ByteString deriving (Eq, Ord)
 
 instance BioSeq DNASeq where
+  empty = DNASeq B.empty
   fromIupacString = DNASeq . B.pack . map fromIupacChar
   toIupacString (DNASeq bs) = map toIupacChar $ B.unpack bs
   fromList = DNASeq . B.pack
